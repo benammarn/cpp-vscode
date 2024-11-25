@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: Configure",
+            "command": "cmake",
+            "args": [
+                "-S", "${workspaceFolder}",
+                "-B", "${workspaceFolder}/build"
+            ],
+            "type": "shell",
+            "group": "build"
+        },
+        {
+            "label": "CMake: Build and Run",
+            "command": "cmake --build ${workspaceFolder}/build && clear && ${workspaceFolder}/myapp",   // Replace 'MyProject' with your executable name
+            "type": "shell",
+            "group": "build",
+            "dependsOn": "CMake: Configure",
+            "problemMatcher": ["$gcc"]  // This is to enable error detection for C++ (assuming you're using GCC)
+        }
+    ]
+}
